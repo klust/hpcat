@@ -30,7 +30,7 @@ amd:
 nvidia:
 	${CC} -O3 -L. -I. -L${CUDA_HOME}/lib64 -L${CUDA_HOME}/lib64/stubs -L${CUDA_HOME}/include -Wl,-rpath,'${CUDA_HOME}/lib64' -Wl,-rpath,'${CUDA_HOME}/lib64/stubs' -lnvidia-ml -lhwloc -shared -fPIC -ldl accel_nvml.c -o hpcatnvml.so
 
-install:
+install: all
 	mkdir -p $(PREFIX)/bin
 	mkdir -p $(PREFIX)/share
 	cp hpcat hpcat*.so $(PREFIX)/bin
